@@ -7,6 +7,18 @@ on:
   push:
     branches:
       - "main"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Godot engine version"
+        default: "4.5"
+        required: true
+        type: string
+      version_ref:
+        description: "Godot engine commit reference"
+        default: "4.5"
+        required: true
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}|${{ github.ref_name }}
